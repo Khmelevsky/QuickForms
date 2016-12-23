@@ -71,6 +71,7 @@ extension Form {
             public static var required = "Field is required"
             public static var regexValueNil = "Value is nil"
             public static var regexPatternError = "Pattern error"
+            public static var email = "Invalid email"
             
         }
     }
