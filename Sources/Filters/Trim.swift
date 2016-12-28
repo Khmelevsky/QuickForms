@@ -10,6 +10,8 @@ import Foundation
 
 open class TrimFilter: Filter {
     
+    public init(){}
+    
     open func filtere(value: String) -> String {
         return value.trimmingCharacters(in: CharacterSet.whitespacesAndNewlines)
     }

@@ -10,6 +10,8 @@ import Foundation
 
 open class UpperCaseFilter: Filter {
     
+    public init(){}
+    
     open func filtere(value: String) -> String {
         return value.uppercased()
     }

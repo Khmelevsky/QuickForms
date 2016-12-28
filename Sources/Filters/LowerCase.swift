@@ -10,6 +10,8 @@ import Foundation
 
 open class LowerCaseFilter: Filter {
     
+    public init(){}
+    
     open func filtere(value: String) -> String {
         return value.lowercased()
     }
