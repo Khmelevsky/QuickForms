@@ -8,9 +8,9 @@
 
 import Foundation
 
-class LowerCaseFilter: Filter {
+open class LowerCaseFilter: Filter {
     
-    public func filtere(value: String) -> String {
+    open func filtere(value: String) -> String {
         return value.lowercased()
     }
     

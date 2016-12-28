@@ -8,9 +8,9 @@
 
 import Foundation
 
-class TrimFilter: Filter {
+open class TrimFilter: Filter {
     
-    public func filtere(value: String) -> String {
+    open func filtere(value: String) -> String {
         return value.trimmingCharacters(in: CharacterSet.whitespacesAndNewlines)
     }
     

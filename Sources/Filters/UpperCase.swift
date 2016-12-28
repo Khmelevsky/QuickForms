@@ -8,9 +8,9 @@
 
 import Foundation
 
-class UpperCaseFilter: Filter {
+open class UpperCaseFilter: Filter {
     
-    public func filtere(value: String) -> String {
+    open func filtere(value: String) -> String {
         return value.uppercased()
     }
     
