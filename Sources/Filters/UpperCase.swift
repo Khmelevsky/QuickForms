@@ -8,12 +8,17 @@
 
 import Foundation
 
-open class UpperCaseFilter: Filter {
+extension Filters {
     
-    public init(){}
+    public static func UpperCase() -> Filter {
+        return UpperCaseFilter()
+    }
     
-    open func filtere(value: String) -> String {
-        return value.uppercased()
+    class UpperCaseFilter: Filter {
+        
+        open func filtere(value: String) -> String {
+            return value.uppercased()
+        }
     }
     
 }

@@ -8,6 +8,8 @@
 
 import Foundation
 
+public final class Validators {}
+
 open class Validator<T> {
     
     public init() {}

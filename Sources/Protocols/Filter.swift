@@ -8,6 +8,8 @@
 
 import Foundation
 
+final public class Filters {}
+
 public protocol Filter: class {
     func filtere(value:String) -> String
 }

@@ -8,8 +8,14 @@
 
 import Foundation
 
+extension Validators {
+    public static func RegEx(pattern: String, errorMessage message: String, configuration:((_ options:inout NSRegularExpression.Options, _ matchingOptions:inout NSRegularExpression.MatchingOptions)->())? = nil) -> Validator<String> {
+        return RegexValidator(pattern: pattern, errorMessage: message, configuration: configuration)
+    }
+}
 
-open class RegexValidator: Validator<String> {
+
+class RegexValidator: Validator<String> {
     
     var pattern:String
     var message:String
@@ -17,7 +23,7 @@ open class RegexValidator: Validator<String> {
     var options:NSRegularExpression.Options = []
     var matchingOptions: NSRegularExpression.MatchingOptions = []
     
-    public init(pattern: String, errorMessage message: String, configuration:((_ options:inout NSRegularExpression.Options, _ matchingOptions:inout NSRegularExpression.MatchingOptions)->())? = nil) {
+    init(pattern: String, errorMessage message: String, configuration:((_ options:inout NSRegularExpression.Options, _ matchingOptions:inout NSRegularExpression.MatchingOptions)->())? = nil) {
         self.pattern = pattern
         self.message = message
         configuration?(&options,&matchingOptions)
@@ -28,7 +34,7 @@ open class RegexValidator: Validator<String> {
             return [Form.Error(message: Form.Error.Messages.regexValueNil)]
         }
         if let regex =  try? NSRegularExpression(pattern: pattern, options: options) {
-            return regex.firstMatch(in: value, options: matchingOptions, range: NSRange(location: 0, length: (value as NSString).length)) == nil ? [] : [Form.Error(message: message)]
+            return regex.firstMatch(in: value, options: matchingOptions, range: NSRange(location: 0, length: (value as NSString).length)) != nil ? [] : [Form.Error(message: message)]
         } else {
             return [Form.Error(message: Form.Error.Messages.regexPatternError)]
         }

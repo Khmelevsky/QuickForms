@@ -8,12 +8,20 @@
 
 import Foundation
 
-open class LowerCaseFilter: Filter {
+extension Filters {
     
-    public init(){}
+    public static func LowerCase() -> Filter {
+        return LowerCaseFilter()
+    }
     
-    open func filtere(value: String) -> String {
-        return value.lowercased()
+    class LowerCaseFilter: Filter {
+        
+        open func filtere(value: String) -> String {
+            return value.lowercased()
+        }
+        
     }
     
 }
+
+

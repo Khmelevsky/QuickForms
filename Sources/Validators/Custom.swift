@@ -8,20 +8,26 @@
 
 import Foundation
 
-open class CustomValidator<T:Equatable>: Validator<T> {
+extension Validators {
+    public static func Custom<T:Equatable>(message:String, validator: @escaping (_ value:T?) -> Bool) -> Validator<T> {
+        return CustomValidator(validator: validator, message: message)
+    }
+}
+
+class CustomValidator<T:Equatable>: Validator<T> {
     
-    public typealias Clouser = (_ value:T?) -> Bool
+    typealias Clouser = (_ value:T?) -> Bool
     
     var message: String
     var validator: Clouser
     
-    public init(message:String, validator: @escaping Clouser) {
+    init(validator: @escaping Clouser, message:String) {
         self.message = message
         self.validator = validator
     }
     
     override open func validate(value: T?) -> [ErrorProtocol] {
-        return self.validator(value) ? [] : [Form.Error(message: Form.Error.Messages.regexPatternError)]
+        return self.validator(value) ? [] : [Form.Error(message: message)]
     }
     
 }

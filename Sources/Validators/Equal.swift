@@ -8,11 +8,17 @@
 
 import Foundation
 
-open class EqualValidator<T:Equatable>: Validator<T> {
+extension Validators {
+    public static func Equal<T:Equatable>(to value: T) -> Validator<T> {
+        return EqualValidator<T>(to: value)
+    }
+}
+
+class EqualValidator<T:Equatable>: Validator<T> {
     
     let value: T
     
-    public init(to value: T) {
+    init(to value: T) {
         self.value = value
     }
     

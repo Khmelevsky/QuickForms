@@ -8,10 +8,8 @@
 
 import Foundation
 
-open class EmailValidator: RegexValidator {
-    
-    public init() {
-        super.init(pattern: "[A-Z0-9a-z._%+-]+@[A-Za-z0-9.-]+\\.[A-Za-z]{2,64}", errorMessage: Form.Error.Messages.email)
+extension Validators {
+    public static func Email() -> Validator<String> {
+        return Validators.RegEx(pattern: "[A-Z0-9a-z._%+-]+@[A-Za-z0-9.-]+\\.[A-Za-z]{2,64}", errorMessage: Form.Error.Messages.email)
     }
-    
 }

@@ -8,7 +8,13 @@
 
 import Foundation
 
-open class RequiredValidator<T:Equatable>: Validator<T> {
+extension Validators {
+    public static func Required<T:Equatable>() -> Validator<T> {
+        return RequiredValidator<T>()
+    }
+}
+
+class RequiredValidator<T:Equatable>: Validator<T> {
     
     public override init() {}
     
