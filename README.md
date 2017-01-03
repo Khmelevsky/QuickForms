@@ -10,16 +10,16 @@ Create form model
 ```swift
 class AuthForm: ConfiguratorModel {
     
-    var email = Variable<String>()
+    let email = Variable<String>()
         .add(filter: Filters.Trim())
         .add(validator: Validators.Required())
         .add(validator: Validators.Email())
     
-    var password = Variable<String>()
+    let password = Variable<String>()
         .add(filter: Filters.Trim())
         .add(validator: Validators.Required())
     
-    var code = Variable<Int>()
+    let code = Variable<Int>()
         .add(filter: Filters.Trim())
     
     override func variables() -> [VariableElement] {
