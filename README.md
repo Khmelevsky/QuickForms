@@ -60,7 +60,7 @@ to do
 
 # Installation
 ### Cocoapods
-ObjectMapper can be added to your project using [CocoaPods 0.36 or later](http://blog.cocoapods.org/Pod-Authors-Guide-to-CocoaPods-Frameworks/) by adding the following line to your `Podfile`:
+QuickForms can be added to your project using [CocoaPods 0.36 or later](http://blog.cocoapods.org/Pod-Authors-Guide-to-CocoaPods-Frameworks/) by adding the following line to your `Podfile`:
 
 ```ruby
 pod 'QuickForms', git: 'https://github.com/Khmelevsky/QuickForms.git'
