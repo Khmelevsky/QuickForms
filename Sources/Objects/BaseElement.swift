@@ -23,7 +23,7 @@ open class BaseElement<T:ConvertibleFormType & CustomStringConvertible>: Element
         return T.convert(value: value)
     }
     
-    open func result(default value: T) -> T? {
+    open func result(default value: T) -> T {
         return self.result() ?? value
     }
     
