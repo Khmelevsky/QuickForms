@@ -15,7 +15,7 @@ open class Form {
     
     public init() {}
     
-    var errors: [ErrorProtocol] {
+    public var errors: [ErrorProtocol] {
         return self.elements().reduce([ErrorProtocol](), { $0.0 + $0.1.errors })
     }
     
