@@ -8,45 +8,51 @@
 # The Basics
 Create form model
 ```swift
-class AuthForm: ConfiguratorModel {
+class Authorization: Form {
     
-    let email = Variable<String>()
+    let email = Field<String>()
         .add(filter: Filters.Trim())
         .add(validator: Validators.Required())
         .add(validator: Validators.Email())
     
-    let password = Variable<String>()
+    let password = Field<String>()
         .add(filter: Filters.Trim())
         .add(validator: Validators.Required())
     
-    let code = Variable<Int>()
-        .add(filter: Filters.Trim())
+    let code = Field<Int>()
     
-    override func variables() -> [VariableElement] {
-        return [email, password, code]
+    override func elements() -> [Element] {
+        return super.elements() + [email, password, code]
     }
     
 }
 ```
-
 bind form value to UI element
 ```swift
-let form = Configurator<AuthForm>().configure { myForm in
-    myForm.email.bindTo(element: emailTextField.toElement())
-    myForm.password.bindTo(element: passwordTextField.toElement())
-    myForm.code.bindTo(element: codeTextField.toElement())
+class ViewController: UIViewController {
+
+    let form = Authorization()
+    
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        
+        // bind variables
+        form.email.bind(to: emailTextField)
+        form.password.bind(to: passwordTextField)
+        form.code.bind(to: codeTextField)
+    }
+    
 }
 ```
 
 validation form and getting result
 ```swift
 if form.isValid() {
-    form.email.result() // return value
-    form.password.result() // return value
-    form.code.result(default: 3483) // return value or default if value == nil
+    form.email.value()
+    form.password.value()
+    form.code.value(default: 3483)
 } else {
-    // get form errors
-    form.errors
+    //form.errors
 }
 ```
 
