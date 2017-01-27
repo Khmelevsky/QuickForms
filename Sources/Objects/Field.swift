@@ -44,15 +44,17 @@ public class Field<T:FormSupportedTypeProtocol>: Element {
 // MARK: - Filters controll
 extension Field {
     
-    public func add(filter:Filter<T>) {
-        remove(filter: filter)
+    public func add(filter:Filter<T>) -> Self {
+        _ = remove(filter: filter)
         _filters.append(filter)
+        return self
     }
     
-    public func remove(filter:Filter<T>) {
+    public func remove(filter:Filter<T>) -> Self {
         if let index = _filters.index(where: { $0 === filter }) {
             _filters.remove(at: index)
         }
+        return self
     }
     
     public func removeFilters() {
@@ -63,15 +65,17 @@ extension Field {
 // MARK: - Validators controll
 extension Field {
     
-    public func add(validator:Validator<T>) {
-        remove(validator: validator)
+    public func add(validator:Validator<T>) -> Self {
+        _ = remove(validator: validator)
         _validators.append(validator)
+        return self
     }
     
-    public func remove(validator:Validator<T>) {
+    public func remove(validator:Validator<T>) -> Self {
         if let index = _validators.index(where: { $0 === validator }) {
             _validators.remove(at: index)
         }
+        return self
     }
     
     public func removeValidators() {
