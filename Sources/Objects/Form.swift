@@ -13,36 +13,42 @@ public typealias ErrorProtocol = Error
 
 open class Form {
     
-    public init(){}
+    public init() {}
     
-    var elements = [Element]()
-    
-    /// Return form errors
-    open var errors: [ErrorProtocol] {
-        return elements.reduce([ErrorProtocol](), { $0.0 + $0.1.errors })
+    var errors: [ErrorProtocol] {
+        return self.elements().reduce([ErrorProtocol](), { $0.0 + $0.1.errors })
     }
     
-    /// Return true is form valid
+    fileprivate var _elements = [Element]()
+    
+    open func elements() -> [Element] {
+        return _elements
+    }
+    
     open func isValid() -> Bool {
         return errors.count == 0
     }
+}
+
+extension Form {
     
     open func add(element:Element) {
         remove(element: element)
-        elements.append(element)
+        _elements.append(element)
     }
     
     open func remove(element:Element) {
-        if let index = elements.index(where: { $0 === element }) {
-            elements.remove(at: index)
+        if let index = _elements.index(where: { $0 === element }) {
+            _elements.remove(at: index)
         }
     }
     
     open func removeElements() {
-        elements.removeAll()
+        _elements.removeAll()
     }
-    
 }
+
+
 
 // Error
 extension Form {

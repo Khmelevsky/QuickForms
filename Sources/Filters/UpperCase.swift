@@ -10,12 +10,11 @@ import Foundation
 
 extension Filters {
     
-    public static func UpperCase() -> Filter {
+    public static func UpperCase() -> Filter<String> {
         return UpperCaseFilter()
     }
     
-    class UpperCaseFilter: Filter {
-        
+    class UpperCaseFilter: Filter<String> {
         open func filtere(value: String) -> String {
             return value.uppercased()
         }

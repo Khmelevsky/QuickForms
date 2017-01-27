@@ -8,16 +8,13 @@
 
 import UIKit
 
-extension UITextField: ElementDataSource {
-    
-    public var formValue: CustomStringConvertible {
-        get{
+extension UITextField: FieldDataSourceProtocol {
+    public var value: CustomStringConvertible {
+        get {
             return text!
         }
+        set {
+            text = newValue.description
+        }
     }
-    
-    public func toElement() -> BaseElement<String> {
-        return BaseElement<String>(self)
-    }
-    
 }

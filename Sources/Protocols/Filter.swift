@@ -10,7 +10,9 @@ import Foundation
 
 final public class Filters {}
 
-public protocol Filter: class {
-    func filtere(value:String) -> String
+open class Filter<T> {
+    open func filter(value:T?) -> T? {
+        return value
+    }
 }
 

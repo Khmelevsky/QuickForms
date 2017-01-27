@@ -8,15 +8,13 @@
 
 import UIKit
 
-extension UISwitch: ElementDataSource {
-    
-    public var formValue: CustomStringConvertible {
-        get{
+extension UISwitch: FieldDataSourceProtocol {
+    public var value: CustomStringConvertible {
+        get {
             return isOn
         }
-    }
-    
-    public func toElement() -> BaseElement<Bool> {
-        return BaseElement<Bool>(self)
+        set {
+            isOn = Bool(formSupportedType: newValue) ?? false
+        }
     }
 }

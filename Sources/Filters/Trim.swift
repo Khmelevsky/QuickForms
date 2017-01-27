@@ -8,19 +8,16 @@
 
 import Foundation
 
-
 extension Filters {
     
-    public static func Trim() -> Filter {
+    public static func Trim() -> Filter<String> {
         return TrimFilter()
     }
     
-    class TrimFilter: Filter {
-        
+    class TrimFilter: Filter<String> {
         open func filtere(value: String) -> String {
             return value.trimmingCharacters(in: CharacterSet.whitespacesAndNewlines)
         }
-        
     }
     
 }

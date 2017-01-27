@@ -10,16 +10,14 @@ import Foundation
 
 extension Filters {
     
-    public static func LowerCase() -> Filter {
+    public static func LowerCase() -> Filter<String> {
         return LowerCaseFilter()
     }
     
-    class LowerCaseFilter: Filter {
-        
+    class LowerCaseFilter: Filter<String> {
         open func filtere(value: String) -> String {
             return value.lowercased()
         }
-        
     }
     
 }

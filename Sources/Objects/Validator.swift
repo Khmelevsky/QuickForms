@@ -8,14 +8,10 @@
 
 import Foundation
 
-public final class Validators {}
+final public class Validators {}
 
 open class Validator<T> {
-    
-    public init() {}
-    
-    open func validate(value:T?) -> [ErrorProtocol] {
+    open func validate(value:T?) -> [Error] {
         return []
     }
-    
 }

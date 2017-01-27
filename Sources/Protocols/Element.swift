@@ -9,10 +9,5 @@
 import Foundation
 
 public protocol Element: class {
-    var errors: [ErrorProtocol] { get }
-    var source: ElementDataSource { get }
-}
-
-public protocol ElementDataSource {
-    var formValue: CustomStringConvertible { get }
+    var errors: [Error] { get }
 }
