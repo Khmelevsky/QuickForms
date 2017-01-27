@@ -29,7 +29,7 @@ class Authorization: Form {
 ```
 bind form value to UI element
 ```swift
-class SettingsViewController: UIViewController {
+class ViewController: UIViewController {
 
     let form = Authorization()
     
