@@ -13,10 +13,14 @@ open class Form {
     public init() {}
     
     public var errors: [Swift.Error] {
-        return self.elements.reduce(Array<Swift.Error>(), { $0.0 + $0.1.errors })
+        return self._elements.reduce(Array<Swift.Error>(), { $0.0 + $0.1.errors })
     }
     
-    fileprivate(set) var elements = [Element]()
+    fileprivate var _elements = [Element]()
+    
+    public var elements: [Element] {
+        return self._elements
+    }
     
     open func isValid() -> Bool {
         return errors.count == 0
@@ -27,17 +31,17 @@ extension Form {
     
     open func add(element:Element) {
         remove(element: element)
-        elements.append(element)
+        _elements.append(element)
     }
     
     open func remove(element:Element) {
-        if let index = elements.index(where: { $0 === element }) {
-            elements.remove(at: index)
+        if let index = _elements.index(where: { $0 === element }) {
+            _elements.remove(at: index)
         }
     }
     
-    open func removeElements() {
-        elements.removeAll()
+    open func remove_elements() {
+        _elements.removeAll()
     }
 }
 

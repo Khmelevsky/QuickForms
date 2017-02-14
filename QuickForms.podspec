@@ -1,6 +1,6 @@
 Pod::Spec.new do |s|
   s.name           = 'QuickForms'
-  s.version        = '0.2.2'
+  s.version        = '0.2.3'
   s.summary        = "Quick forms"
   s.homepage       = "https://github.com/Khmelevsky/QuickForms"
   s.author         = { 'Alexandr Khmelevsky' => 'khmelevsky.alex@gmail.com' }
