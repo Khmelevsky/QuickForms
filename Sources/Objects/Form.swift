@@ -18,8 +18,8 @@ open class Form {
     
     fileprivate var _elements = [Element]()
     
-    public var elements: [Element] {
-        return self._elements
+    public func elements() -> [Element] {
+        return _elements
     }
     
     open func isValid() -> Bool {
