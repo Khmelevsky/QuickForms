@@ -8,22 +8,15 @@
 
 import Foundation
 
-public typealias ErrorProtocol = Error
-
-
 open class Form {
     
     public init() {}
     
-    public var errors: [ErrorProtocol] {
-        return self.elements().reduce([ErrorProtocol](), { $0.0 + $0.1.errors })
+    public var errors: [Swift.Error] {
+        return self.elements.reduce(Array<Swift.Error>(), { $0.0 + $0.1.errors })
     }
     
-    fileprivate var _elements = [Element]()
-    
-    open func elements() -> [Element] {
-        return _elements
-    }
+    fileprivate(set) var elements = [Element]()
     
     open func isValid() -> Bool {
         return errors.count == 0
@@ -34,17 +27,17 @@ extension Form {
     
     open func add(element:Element) {
         remove(element: element)
-        _elements.append(element)
+        elements.append(element)
     }
     
     open func remove(element:Element) {
-        if let index = _elements.index(where: { $0 === element }) {
-            _elements.remove(at: index)
+        if let index = elements.index(where: { $0 === element }) {
+            elements.remove(at: index)
         }
     }
     
     open func removeElements() {
-        _elements.removeAll()
+        elements.removeAll()
     }
 }
 
@@ -53,8 +46,9 @@ extension Form {
 // Error
 extension Form {
     
-    open class Error: ErrorProtocol, LocalizedError {
+    open class Error: Swift.Error, LocalizedError {
         var message: String
+        var element: Element?
         
         public var localizedDescription: String {
             get {
@@ -70,15 +64,6 @@ extension Form {
         
         public init(message:String) {
             self.message = message
-        }
-        
-        public struct Messages {
-            public static var equal = "Field should be equal to %@"
-            public static var required = "Field is required"
-            public static var regexValueNil = "Value is nil"
-            public static var regexPatternError = "Pattern error"
-            public static var email = "Invalid email"
-            
         }
     }
     

@@ -26,7 +26,7 @@ class CustomValidator<T:Equatable>: Validator<T> {
         self.validator = validator
     }
     
-    override open func validate(value: T?) -> [ErrorProtocol] {
+    override open func validate(value: T?) -> [Swift.Error] {
         return self.validator(value) ? [] : [Form.Error(message: message)]
     }
     

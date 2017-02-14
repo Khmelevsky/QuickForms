@@ -20,7 +20,7 @@ public class Field<T:FormSupportedTypeProtocol>: Element {
     
     fileprivate var _validators: [Validator<T>] = []
     fileprivate var _filters: [Filter<T>] = []
-    fileprivate var source: FieldDataSourceProtocol!
+    weak private(set) var source: FieldDataSourceProtocol!
     
     public init(){}
     
@@ -87,7 +87,7 @@ extension Field {
     }
 }
 
-public protocol FieldDataSourceProtocol {
+public protocol FieldDataSourceProtocol: class {
     var value: CustomStringConvertible { get set }
 }
 

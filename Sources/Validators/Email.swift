@@ -9,7 +9,7 @@
 import Foundation
 
 extension Validators {
-    public static func Email() -> Validator<String> {
-        return Validators.RegEx(pattern: "[A-Z0-9a-z._%+-]+@[A-Za-z0-9.-]+\\.[A-Za-z]{2,64}", errorMessage: Form.Error.Messages.email)
+    public static func Email(errorMessage error:String = "Invalid email") -> Validator<String> {
+        return Validators.RegEx(pattern: "[A-Z0-9a-z._%+-]+@[A-Za-z0-9.-]+\\.[A-Za-z]{2,64}", message: error)
     }
 }

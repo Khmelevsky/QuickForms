@@ -9,16 +9,20 @@
 import Foundation
 
 extension Validators {
-    public static func Required<T:Equatable>() -> Validator<T> {
-        return RequiredValidator<T>()
+    public static func Required<T:Equatable>(message:String = "Field is required") -> Validator<T> {
+        return RequiredValidator<T>(message:message)
     }
 }
 
 class RequiredValidator<T:Equatable>: Validator<T> {
     
-    public override init() {}
+    private var message:String!
     
-    override open func validate(value: T?) -> [ErrorProtocol] {
+    public init(message:String) {
+        self.message = message
+    }
+    
+    override open func validate(value: T?) -> [Swift.Error] {
         var valid = true
         
         if value == nil {
@@ -27,7 +31,7 @@ class RequiredValidator<T:Equatable>: Validator<T> {
             valid = false
         }
         
-        return valid ? [] : [Form.Error(message: Form.Error.Messages.required)]
+        return valid ? [] : [Form.Error(message: message)]
     }
     
 }
