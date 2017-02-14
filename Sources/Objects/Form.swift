@@ -12,14 +12,14 @@ open class Form {
     
     public init() {}
     
-    public var errors: [Swift.Error] {
-        return self._elements.reduce(Array<Swift.Error>(), { $0.0 + $0.1.errors })
-    }
-    
     fileprivate var _elements = [Element]()
     
     open func elements() -> [Element] {
         return _elements
+    }
+    
+    public var errors: [Swift.Error] {
+        return self.elements().reduce(Array<Swift.Error>(), { $0.0 + $0.1.errors })
     }
     
     open func isValid() -> Bool {
