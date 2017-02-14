@@ -18,7 +18,7 @@ open class Form {
     
     fileprivate var _elements = [Element]()
     
-    public func elements() -> [Element] {
+    open func elements() -> [Element] {
         return _elements
     }
     
