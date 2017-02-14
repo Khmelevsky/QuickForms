@@ -12,7 +12,11 @@ import Foundation
 public class Field<T:FormSupportedTypeProtocol>: Element {
     
     // Element
-    public var errors: [Error] = []
+    public var errors: [Error] {
+        get {
+            return _validators.reduce([Error](), { $0 + $1.validate(value: self.value()) })
+        }
+    }
     
     fileprivate var _validators: [Validator<T>] = []
     fileprivate var _filters: [Filter<T>] = []
