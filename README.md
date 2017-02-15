@@ -8,7 +8,7 @@
 # The Basics
 Create form model
 ```swift
-class Authorization: Form {
+class AuthorizationForm: Form {
     
     let email = Field<String>()
         .add(filter: Filters.Trim())
@@ -22,7 +22,7 @@ class Authorization: Form {
     let code = Field<Int>()
     
     override func elements() -> [Element] {
-        return super.elements() + [email, password, code]
+        return [email, password, code] + super.elements()
     }
     
 }

@@ -44,3 +44,47 @@ extension Bool: FormSupportedTypeProtocol {
         self.init(value.description)
     }
 }
+
+extension Int32: FormSupportedTypeProtocol {
+    public init?(formSupportedType value: CustomStringConvertible) {
+        self.init(value.description.trimmingCharacters(in: CharacterSet.whitespacesAndNewlines))
+    }
+}
+
+extension UInt32: FormSupportedTypeProtocol {
+    public init?(formSupportedType value: CustomStringConvertible) {
+        self.init(value.description.trimmingCharacters(in: CharacterSet.whitespacesAndNewlines))
+    }
+}
+
+extension Int64: FormSupportedTypeProtocol {
+    public init?(formSupportedType value: CustomStringConvertible) {
+        self.init(value.description.trimmingCharacters(in: CharacterSet.whitespacesAndNewlines))
+    }
+}
+
+extension UInt64: FormSupportedTypeProtocol {
+    public init?(formSupportedType value: CustomStringConvertible) {
+        self.init(value.description.trimmingCharacters(in: CharacterSet.whitespacesAndNewlines))
+    }
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

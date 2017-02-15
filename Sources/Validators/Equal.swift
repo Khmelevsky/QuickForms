@@ -9,7 +9,7 @@
 import Foundation
 
 extension Validators {
-    public static func Equal<T:Equatable>(to value: T, message:String = "Field should be equal to %@") -> Validator<T> {
+    public static func Equal<T:Equatable>(to value: T, message:String) -> Validator<T> {
         return EqualValidator<T>(to: value, message: message)
     }
 }
@@ -25,6 +25,6 @@ class EqualValidator<T:Equatable>: Validator<T> {
     }
     
     override open func validate(value: T?) -> [Swift.Error] {
-        return self.value == value ? [] : [Form.Error(message: String(format: message, "\(self.value)"))]
+        return self.value == value ? [] : [Form.Error(message: message)]
     }
 }

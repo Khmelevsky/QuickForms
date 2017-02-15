@@ -40,7 +40,7 @@ extension Form {
         }
     }
     
-    open func remove_elements() {
+    open func removeElements() {
         _elements.removeAll()
     }
 }
@@ -51,8 +51,8 @@ extension Form {
 extension Form {
     
     open class Error: Swift.Error, LocalizedError {
-        var message: String
-        var element: Element?
+        
+        private var message: String
         
         public var localizedDescription: String {
             get {
