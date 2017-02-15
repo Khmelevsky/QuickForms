@@ -41,11 +41,17 @@ public class Field<T:FormSupportedTypeProtocol>: Element {
     
     // value
     public func value() -> T? {
+        if source == nil {
+            assertionFailure("source is nil, need use bind(to:)")
+        }
         return _filters.reduce(T(formSupportedType:source.value), { $0.1.filter(value: $0.0) })
     }
     
     public func value(default value:T) -> T {
-        return self.value() ?? value
+        guard let current = self.value() as? String else {
+            return self.value() ?? value
+        }
+        return !current.isEmpty ? current as! T : value
     }
     
 }

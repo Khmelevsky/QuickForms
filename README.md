@@ -31,7 +31,7 @@ bind form value to UI element
 ```swift
 class ViewController: UIViewController {
 
-    let form = Authorization()
+    let form = AuthorizationForm()
     
     override func viewDidLoad() {
         super.viewDidLoad()
