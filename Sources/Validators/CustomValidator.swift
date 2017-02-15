@@ -1,5 +1,5 @@
 //
-//  Custom.swift
+//  CustomValidator.swift
 //  QuickForms
 //
 //  Created by Alexander Khmelevsky on 20.12.16.

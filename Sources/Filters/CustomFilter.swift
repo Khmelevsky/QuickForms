@@ -1,5 +1,5 @@
 //
-//  Custom.swift
+//  CustomFilter.swift
 //  QuickForms
 //
 //  Created by Alexander Khmelevsky on 15.02.17.
