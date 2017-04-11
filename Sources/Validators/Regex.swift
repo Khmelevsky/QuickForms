@@ -35,7 +35,7 @@ class RegexValidator: Validator<String> {
             return []
         }
         if let regex =  try? NSRegularExpression(pattern: pattern, options: options) {
-            return regex.firstMatch(in: value, options: matchingOptions, range: NSRange(location: 0, length: (value as NSString).length)) != nil ? [] : [Form.Error(message: message)]
+            return regex.firstMatch(in: value, options: matchingOptions, range: NSRange(location: 0, length: (value as NSString).length)) != nil ? [] : [Form.makeError(message: message)]
         } else {
             assertionFailure("Pattern error")
             return []

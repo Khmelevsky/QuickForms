@@ -50,25 +50,9 @@ extension Form {
 // Error
 extension Form {
     
-    open class Error: Swift.Error, LocalizedError {
-        
-        private var message: String
-        
-        public var localizedDescription: String {
-            get {
-                return message
-            }
-        }
-        
-        public var errorDescription: String? {
-            get {
-                return message
-            }
-        }
-        
-        public init(message:String) {
-            self.message = message
-        }
+    public static func makeError(message:String) -> Error {
+        let info: [AnyHashable : Any] = [NSLocalizedDescriptionKey:message]
+        return NSError(domain: "queckForms", code: 0, userInfo: info)
     }
     
 }

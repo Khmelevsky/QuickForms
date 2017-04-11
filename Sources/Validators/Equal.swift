@@ -25,6 +25,6 @@ class EqualValidator<T:Equatable>: Validator<T> {
     }
     
     override open func validate(value: T?) -> [Swift.Error] {
-        return self.value == value ? [] : [Form.Error(message: message)]
+        return self.value == value ? [] : [Form.makeError(message: message)]
     }
 }

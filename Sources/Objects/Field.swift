@@ -18,25 +18,20 @@ public class Field<T:FormSupportedTypeProtocol>: Element {
         }
     }
     
-    fileprivate var _validators: [Validator<T>] = []
-    fileprivate var _filters: [Filter<T>] = []
+    fileprivate(set) var _validators: [Validator<T>] = []
+    fileprivate(set) var _filters: [Filter<T>] = []
     // source
-    fileprivate var _source: FieldDataSourceProtocol!
-    public weak var source: FieldDataSourceProtocol! {
-        get {
-            return _source
-        }
-    }
+    open private(set) weak var source: FieldDataSourceProtocol!
     
     public init(){}
     
     public convenience init(source:FieldDataSourceProtocol) {
         self.init()
-        self._source = source
+        self.source = source
     }
     
     public func bind(to source:FieldDataSourceProtocol) {
-        self._source = source
+        self.source = source
     }
     
     // value

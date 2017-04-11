@@ -31,7 +31,7 @@ class RequiredValidator<T:Equatable>: Validator<T> {
             valid = false
         }
         
-        return valid ? [] : [Form.Error(message: message)]
+        return valid ? [] : [Form.makeError(message: message)]
     }
     
 }
