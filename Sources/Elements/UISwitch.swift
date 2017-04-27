@@ -8,6 +8,7 @@
 
 import UIKit
 
+#if os(iOS)
 extension UISwitch: FieldDataSourceProtocol {
     public var value: CustomStringConvertible {
         get {
@@ -18,3 +19,4 @@ extension UISwitch: FieldDataSourceProtocol {
         }
     }
 }
+#endif
