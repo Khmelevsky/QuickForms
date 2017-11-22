@@ -39,7 +39,7 @@ public class Field<T:FormSupportedTypeProtocol>: Element {
         if source == nil {
             assertionFailure("source is nil, need use bind(to:)")
         }
-        return _filters.reduce(T(formSupportedType:source.value), { $0.1.filter(value: $0.0) })
+        return _filters.reduce(T(formSupportedType:source.value), { $1.filter(value: $0) })
     }
     
     public func value(default value:T) -> T {

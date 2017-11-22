@@ -27,7 +27,7 @@ class RequiredValidator<T:Equatable>: Validator<T> {
         
         if value == nil {
             valid = false
-        } else if let str = value as? String, str.characters.count == 0 {
+        } else if let str = value as? String, str.count == 0 {
             valid = false
         }
         

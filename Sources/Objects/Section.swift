@@ -16,7 +16,7 @@ open class Section: Element {
     
     public var errors: [Error] {
         get {
-            return _elements.reduce([Error](), { $0.0 + $0.1.errors })
+            return _elements.reduce([Error](), { $0 + $1.errors })
         }
     }
     

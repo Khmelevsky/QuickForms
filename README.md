@@ -1,8 +1,8 @@
 # QuickForms
 ![CocoaPods](https://img.shields.io/badge/platform-ios-lightgray.svg)
-[![CocoaPods](https://img.shields.io/badge/pod-0.2-blue.svg)](https://github.com/Khmelevsky/QuickForms)
+[![CocoaPods](https://img.shields.io/badge/pod-0.4-blue.svg)](https://github.com/Khmelevsky/QuickForms)
 ![CocoaPods](https://img.shields.io/badge/status-alpha-orange.svg)
-[![CocoaPods](https://img.shields.io/badge/swift-3.0-brightgreen.svg)](https://swift.org)
+[![CocoaPods](https://img.shields.io/badge/swift-4.0-brightgreen.svg)](https://swift.org)
 [![CocoaPods](https://img.shields.io/badge/license-MIT-lightgray.svg)](https://github.com/Khmelevsky/QuickForms/blob/master/LICENSE)
 
 # The Basics

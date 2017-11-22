@@ -9,7 +9,7 @@
 import XCTest
 import QuickForms
 
-private let TEST_EMAIL = "asdasd@mail.ru"
+private let TEST_EMAIL = "user-email@gmail.com"
 
 
 class Base: XCTestCase {
@@ -60,7 +60,6 @@ extension Base {
     class EmptyForm: Form {}
     
     class TestForm: Form {
-        
         // sources
         let tfText = UITextField()
         let tfEmail = UITextField()
@@ -78,7 +77,6 @@ extension Base {
             return [field1, field2] + super.elements()
         }
     }
-    
     
     class ErrorForm: Form {
         let tfError = UITextField()

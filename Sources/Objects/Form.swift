@@ -19,7 +19,7 @@ open class Form {
     }
     
     public var errors: [Swift.Error] {
-        return self.elements().reduce(Array<Swift.Error>(), { $0.0 + $0.1.errors })
+        return self.elements().reduce(Array<Swift.Error>(), { $0 + $1.errors })
     }
     
     open func isValid() -> Bool {
@@ -51,7 +51,7 @@ extension Form {
 extension Form {
     
     public static func makeError(message:String) -> Error {
-        let info: [AnyHashable : Any] = [NSLocalizedDescriptionKey:message]
+        let info: [String : Any] = [NSLocalizedDescriptionKey:message]
         return NSError(domain: "queckForms", code: 0, userInfo: info)
     }
     
