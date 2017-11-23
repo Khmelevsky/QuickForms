@@ -27,7 +27,7 @@ class AuthorizationForm: Form {
     
 }
 ```
-bind form value to UI element
+bind form to UI element
 ```swift
 class ViewController: UIViewController {
 
@@ -45,7 +45,7 @@ class ViewController: UIViewController {
 }
 ```
 
-validation form and getting result
+validation and getting result
 ```swift
 if form.isValid() {
     form.email.value()
@@ -70,7 +70,7 @@ to do
 QuickForms can be added to your project using [CocoaPods 0.36 or later](http://blog.cocoapods.org/Pod-Authors-Guide-to-CocoaPods-Frameworks/) by adding the following line to your `Podfile`:
 
 ```ruby
-pod 'QuickForms', git: 'https://github.com/Khmelevsky/QuickForms.git'
+pod 'QuickForms'
 ```
 
 ## License
